@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map compare</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=2d9149d9-af30-49e7-a535-e9c7e202414e" type="text/javascript"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
+    <link rel = "stylesheet" href = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <script src = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxGmWX_4YEySLGTqYSqY6ektVEBhi1UUM&callback=initMap&libraries=&v=weekly" async ></script>
+	<style>
+    html, body {
+      width: 100%; height: 100%; padding: 0; margin: 0;
+      font-family: 'Courier New', Courier, monospace;
+    }
+    .main {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+    }
+    #mainMap {
+      position: fixed;
+      top: 0;
+      right: 0; 
+      left: 0;
+      bottom: 0;
+      z-index: 1;
+      opacity: 0.2;
+      width: 100%; height: 100%; padding: 0; margin: 0;
+    }
+
+    .leaflet-control-container {
+      display: none;
+    }
+    .loader {
+      position: fixed;
+      top: 0;
+      right: 0; 
+      left: 0;
+      bottom: 0;
+      display: block;
+    }
+    .loader-inner {
+      background-color: rgb(45, 94, 255);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin: 40% auto;
+      
+    }
+
+    .loader--inactive {
+      display: none;
+    }
+    .mapZoomPanel {
+      position: absolute;
+      top: 30px;
+      left: 40px;
+      background-color: aliceblue;
+      color:rgb(45, 94, 255);
+      padding: 5px;
+    }
+    </style>
+</head>
+<body>
+  <main class="main">
+    <div id="mapboxMap"></div>
+    <div id="googleMap"></div>
+    <div id="yaMap"></div>
+    <div id="osmMap"></div>
+  </main>
+  <div class="loader">
+    <div class="loader-inner">Loading Loading Loading</div>
+  </div>
+  <div id="mainMap"></div>
+  <div class="mapZoomPanel"></div>
+  <script src="./src/index.js" type="module"></script>
+</body>
+</html>
